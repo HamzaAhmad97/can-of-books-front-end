@@ -4,7 +4,6 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import './BestBooks.css';
 import {Card, Container} from 'react-bootstrap';
 import books from './books.json';
-import { data } from 'cheerio/lib/api/attributes';
 class MyFavoriteBooks extends React.Component {
   render() {
     return(
