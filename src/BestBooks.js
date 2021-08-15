@@ -12,7 +12,7 @@ class MyFavoriteBooks extends React.Component {
           This is a collection of my favorite books
         </p>
       </Jumbotron>
-    )
+    );
   }
 }
 
