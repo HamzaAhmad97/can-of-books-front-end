@@ -9,7 +9,7 @@ function LogoutButton() {
 
   return isAuthenticated && (
     <button onClick={() => {
-      logout( { returnTo: window.location.origin } );
+      logout( { returnTo: 'http://localhost:3000/' } );
     }}>Log out</button>
   );
 }
