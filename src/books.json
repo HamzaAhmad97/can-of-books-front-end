@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Thinking, fast and slow",
+    "Author": "Daniel Kahneman",
+    "src": "https://img1.od-cdn.com/ImageType-100/0111-1/%7B20947F5B-F6A1-4CA7-B332-F46D587A0F8A%7DImg100.jpg"
+  },
+  {
+    "title": "Head First Java",
+    "Author": "Bert Bates and Kathy Sierra",
+    "src": "https://images-na.ssl-images-amazon.com/images/I/819TQgUGNsL.jpg"
+  },
+  {
+    "title": "The Alchemist",
+    "Author": "Paulo Coelho",
+    "src": "https://m.media-amazon.com/images/I/51Z0nLAfLmL.jpg"
+  },
+  {
+    "title": "Automate the Boring Stuff with Python",
+    "Author": "Al Sweigart",
+    "src": "https://m.media-amazon.com/images/I/51o-3Nx9bBL.jpg"
+  },
+  {
+    "title": "A Brief History of Time",
+    "Author": "Stephen Hawking",
+    "src": "https://images-na.ssl-images-amazon.com/images/I/51xE6ZCQdqS._SX331_BO1,204,203,200_.jpg"
+  },
+  {
+    "title": "The Elegant Universe",
+    "Author": "Brian Greene",
+    "src": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/TheElegantUniverse.jpg/220px-TheElegantUniverse.jpg"
+  },
+  {
+    "title": "Eloquent JavaScript",
+    "Author": "Marijn Haverbeke",
+    "src": "https://eloquentjavascript.net/img/cover.jpg"
+  }
+]
