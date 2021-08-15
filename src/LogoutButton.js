@@ -9,7 +9,7 @@ function LogoutButton() {
 
   return isAuthenticated && (
     <Button variant="light" size="sm" onClick={() => {
-      logout( { returnTo: window.location.origin );
+      logout( { returnTo: window.location.origin } );
     }}>Log out</Button>
   );
 }
