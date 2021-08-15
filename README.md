@@ -5,46 +5,44 @@
 
 ## Overview
 
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+This is an application where we demonstrate our understanding of routing and authentication, the user will have to login using a service and then he wil get access to the content on the website.
 
 ## Getting Started
 
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+To build this app, you should have a fair understanding of react, routing, authentication, in addition to some styling.
 
 ## Architecture
 
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+In this app I have used, React, JavaScript, Auth0, Routers, Bootstrap and react-bootstrap.
 
 ## Change Log
 
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+- 15/8/2021 > The basic functionality of authentication is established, in addition, the routing is also functioning as expected, needs more styling.
 
 ## Credit and Collaborations
 
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+Hamza Ahmad & Walaa Mohammad
 
 ## Time estimates
 
 * Lab 11
 
-1. ### Name of feature: ________________________________
+1. ### Name of feature: 1. Set up your repositories
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 1 hr
 
-Start time: _____
+Start time: 4:00 pm
 
-Finish time: _____
+Finish time: 6:00 pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 2 hrs
 
-2. ### Name of feature: ________________________________
+2. ### Name of feature: 2. Authentication
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 1 hr
 
-Start time: _____
+Start time: 9:00 pm
 
-Finish time: _____
+Finish time: 11:15 pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 2 hrs and 15 mins

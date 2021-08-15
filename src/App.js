@@ -17,22 +17,24 @@ class App extends React.Component {
   render() {
     console.log( 'app', this.props );
     return (
-      <>
-        <Router>
-          <IsLoadingAndError>
-            <Header />
+
+      <Router >
+        <IsLoadingAndError>
+          <Header />
+          <div style={{ padding: '2vh 8vw', background: 'lightgray', minHeight: '89vh' }}>
             <Switch>
               <Route exact path="/">
                 {this.props.auth0.isAuthenticated ? <BestBooks /> : <Login />}
               </Route>
               <Route path='/profile'>
-                {this.props.auth0.isAuthenticated ? <Profile /> : undefined}
+                <Profile />
               </Route>
             </Switch>
-            <Footer />
-          </IsLoadingAndError>
-        </Router>
-      </>
+          </div>
+          <Footer />
+        </IsLoadingAndError>
+      </Router >
+
     );
   }
 }
