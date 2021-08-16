@@ -2,33 +2,87 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import './BestBooks.css';
-import {Card, Container} from 'react-bootstrap';
-import books from './books.json';
+import { Card, Container } from 'react-bootstrap';
+//import books from './books.json';
+import FormBook from './FormBook';
+import axios from 'axios';
+import { Button, Row, Col, Carousel } from 'react-bootstrap';
 class MyFavoriteBooks extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      books: {},
+      shForm: true,
+      shShoWBooks: true,
+    };
+  }
+  getBooks = ( e ) => {
+    e.preventDefault();
+    this.setState( { shForm: false } );
+    axios.get( 'http://localhost:3001/books' )
+      .then( res => {
+        return res.data;
+      } )
+      .then( val => {
+        this.setState( { books: val } );
+      } )
+      .catch( err => console.log( 'erro fetching books data' ) );
+  }
+  showForm = ( e ) => {
+    this.setState( { shForm: true, shShoWBooks: false } );
+  }
+  sendBook = ( obj ) => {
+    console.log( obj );
+    let {title, desc} = obj;
+    axios.get( `http://localhost:3001/saveBook?title=${title}&description=${desc}&status=available&email=h.radiahmad@gmail.com` ).then( res => {
+      alert( 'Book was added successfully!' );
+    } ).catch( err => console.log( 'a problem occured, book can not be added' ) );
+  }
   render() {
-    return(
+    return (
       <div>
-        <Jumbotron style={{ background: 'lightgray'}}>
+        <Jumbotron style={{ background: 'lightgray' }}>
           <h1>My Favorite Books</h1>
           <p>
-          This is a collection of my favorite books
+            This is a collection of my favorite books
           </p>
         </Jumbotron>
-        <section style={{margin: '1vh 0vw',minHeight: '60vh'}}>
-          <Container fluid style={{display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap:'2rem', justifyContent: 'center'}}>
-            {books.map( ( itm, i ) => (
+        <Row className='mb-5 mt-5 pt-5'>
+          <Col align="center">
+            <Button onClick={this.getBooks} >Show Books</Button>
+          </Col>
+          <Col align='center'>
+            <Button onClick={this.showForm} >Add a book</Button>
+          </Col>
+        </Row>
 
-              <Card style={{ width: '18rem' }} className="col-lg-2 border reounded pt-3 pb-1">
-                <Card.Img variant="top" src={itm.src} />
-                <Card.Body>
-                  <Card.Title style={{fontWeight: 'bold'}}>{itm.title}</Card.Title>
-                  <Card.Text>
-                    {itm.Author}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
+        <section style={{ margin: '1vh 0vw', minHeight: '60vh' }}>
+          <Container fluid style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center' }}>
+            {this.state.shForm && !this.state.shShoWBooks ? <Row>
+              <Col align="center">
+                <FormBook sendBook={this.sendBook}/>
+              </Col>
+            </Row>
+              : undefined}
+            <Carousel>
 
-            ) )}
+              {Object.keys( this.state.books ).length && !this.state.shForm ? this.state.books.map( ( itm, i ) => (
+
+                <Carousel.Item>
+                  <img
+                    className="d-block"
+                    src={'https://cdn.theatlantic.com/thumbor/TC0sl8v8RLnQOcnRn6frkbAFR18=/1223x532:3164x1543/960x500/media/img/mt/2016/03/RTX283V4/original.jpg'}
+                    alt="Third slide"
+                  />
+
+                  <Carousel.Caption>
+                    <h3>{itm.title}</h3>
+                    <p>{itm.description}</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+
+              ) ) : undefined}
+            </Carousel>
           </Container>
         </section>
       </div>
