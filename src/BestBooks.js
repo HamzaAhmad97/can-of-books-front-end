@@ -19,7 +19,7 @@ class MyFavoriteBooks extends React.Component {
   getBooks = ( e ) => {
     e.preventDefault();
     this.setState( { shForm: false } );
-    axios.get( 'http://localhost:3001/books' )
+    axios.get( 'https://can-of-books-fe.herokuapp.com/books' )
       .then( res => {
         return res.data;
       } )
@@ -34,7 +34,7 @@ class MyFavoriteBooks extends React.Component {
   sendBook = ( obj ) => {
     console.log( obj );
     let {title, desc} = obj;
-    axios.get( `http://localhost:3001/saveBook?title=${title}&description=${desc}&status=available&email=h.radiahmad@gmail.com` ).then( res => {
+    axios.get( `https://can-of-books-fe.herokuapp.com/saveBook?title=${title}&description=${desc}&status=available&email=h.radiahmad@gmail.com` ).then( res => {
       alert( 'Book was added successfully!' );
     } ).catch( err => console.log( 'a problem occured, book can not be added' ) );
   }
