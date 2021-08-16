@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import './BestBooks.css';
-import { Card, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 //import books from './books.json';
 import FormBook from './FormBook';
 import axios from 'axios';
