@@ -54,9 +54,9 @@ export class BookFormModal extends Component {
       this.setState( {empty: true} );
       return;
     };
-    axios.post( 'http://localhost:3001/books', { title, desc, email } ).then( res => {
+    axios.post( 'https://can-of-books-fe.herokuapp.com/books', { title, desc, email } ).then( res => {
       this.setState( { bookAdded: true } );
-      axios.get( 'http://localhost:3001/books' )
+      axios.get( 'https://can-of-books-fe.herokuapp.com/books' )
         .then( res => {
           return res.data;
         } )
