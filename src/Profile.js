@@ -15,7 +15,7 @@ class Profile extends React.Component {
           const config = {
             headers: { 'Authorization': `Bearer ${jwt}` },
             method: 'get',
-            baseURL: 'http://localhost:3001',
+            baseURL: 'https://can-of-books-fe.herokuapp.com/',
             url: '/authorize'
           };
           axios( config )
