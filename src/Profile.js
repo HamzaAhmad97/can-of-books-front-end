@@ -19,7 +19,7 @@ class Profile extends React.Component {
             url: '/authorize'
           };
           axios( config )
-            .then( axiosResults => console.log( axiosResults.data ) )
+            .then( axiosResults => console.log( axiosResults.data ) ) //getting user information
             .catch( err => console.error( err ) );
         } )
         .catch( err => console.error( err ) );
