@@ -18,7 +18,7 @@ class MyFavoriteBooks extends React.Component {
   }
 
   componentDidMount() {
-    axios.get( 'http://localhost:3001/books' )
+    axios.get( 'https://can-of-books-fe.herokuapp.com/books' )
       .then( res => {
         return res.data;
       } )
@@ -34,7 +34,7 @@ hideForm = () => {
   this.setState( {showForm: false} );
 }
 deleteBook = ( e ) => {
-  axios.delete( `http://localhost:3001/books/${e.target.id}` ).then( res => {
+  axios.delete( `https://can-of-books-fe.herokuapp.com/books/${e.target.id}` ).then( res => {
     let newBooks = this.state.books.filter( itm => itm._id !== res.data );
     this.setState( {books: newBooks} );
   } ).catch( err => console.error( err ) );
