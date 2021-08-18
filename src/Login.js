@@ -6,9 +6,9 @@ import LoginButton from './LoginButton';
 class Login extends React.Component {
   render() {
     return (
-      <div style={{ margin: 'auto', minHeight: '60vh', backgroundImage: 'url(https://images.unsplash.com/photo-1585862705417-671ae64f0eb7?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBib29rc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80)' }}>
-        <h1 style={{ color: 'white', padding: '1rem',paddingTop: '5rem', width: '100%', textAlign: 'center', margin: '7rem 0',fontFamily: 'Playfair Display, serif' }}>You are a step away from unlocking the mysteries of the universe, and to become a better person.</h1>
-        <Col align='center' style={{width: '10%'}}><LoginButton /></Col>
+      <div style={{position:'relative', margin: 'auto', minHeight: '85vh', backgroundImage: 'url(https://ak.picdn.net/shutterstock/videos/29758747/thumb/1.jpg)', backgroundSize: 'cover', display: 'flex' }}>
+        <h2 style={{position: 'absolute', top: '0', left: '0', padding: '3rem', fontFamily: 'Palette Mosaic, cursive', fontSize: '3rem', color: 'white', textAlign: 'center', width: '100%', paddingTop: '9rem'}}>Unlock the mysteries of the universe</h2>
+        <Col align='center'><LoginButton /></Col>
 
       </div>
     );
