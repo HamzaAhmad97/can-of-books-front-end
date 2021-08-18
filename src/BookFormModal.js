@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Form } from 'react-bootstrap';
 import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
 export class BookFormModal extends Component {
@@ -9,6 +9,7 @@ export class BookFormModal extends Component {
       title: '',
       desc: '',
       email: '',
+      status: '',
       show: this.props.show,
       trusted: false,
       bookAdded: false,
@@ -24,7 +25,7 @@ export class BookFormModal extends Component {
           const config = {
             headers: { 'Authorization': `Bearer ${jwt}` },
             method: 'get',
-            baseURL: 'https://can-of-books-fe.herokuapp.com/',
+            baseURL: 'https://can-of-books-fe.herokuapp.com',
             url: '/authorize'
           };
           axios( config )
@@ -42,19 +43,21 @@ export class BookFormModal extends Component {
   updateTitle = ( e ) => {
     this.setState( { title: e.target.value } );
   }
-
+  updateStatus = ( e ) => {
+    this.setState( { status: e.target.value } );
+  }
   updateDesc = ( e ) => {
     this.setState( { desc: e.target.value } );
   }
   saveBook = ( e ) => {
     this.setState( {empty: false} );
     e.preventDefault();
-    let { title, desc, email } = this.state;
+    let { title, desc, email , status} = this.state;
     if ( title === '' || email === '' ) {
       this.setState( {empty: true} );
       return;
     };
-    axios.post( 'https://can-of-books-fe.herokuapp.com/books', { title, desc, email } ).then( res => {
+    axios.post( 'https://can-of-books-fe.herokuapp.com/books', { title, desc, email, status } ).then( res => {
       this.setState( { bookAdded: true } );
       axios.get( 'https://can-of-books-fe.herokuapp.com/books' )
         .then( res => {
@@ -72,20 +75,26 @@ export class BookFormModal extends Component {
       <>
         <Modal show={this.state.show || this.props.show} onHide={() => this.setState( { show: false, bookAdded: false } )} centered rounded >
           <Modal.Header >
-            <h2 style={{ textAlign: 'center', width: '100%' }}>Add a new book</h2>
+            <Modal.Title>Add a new book</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
-            <form style={{ padding: '0', fontSize: '2rem', gap: '1rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-                <label style={{ alignSelf: 'start', color: 'blue' }} htmlFor='title'>Book title</label>
-                <input style={{ padding: '0 0.5rem', width: '100%', fontSize: '1rem' }} id='title' type='text' placeholder='Elequent JavaScript' onChange={this.updateTitle}></input>
-              </div>
-              <div style={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                <label style={{ alignSelf: 'start', color: 'blue' }} htmlFor='desc'>Description</label>
-                <textarea cols='45' rows='5' style={{ padding: '0 0.5rem', resize: 'none', width: '100%', fontSize: '1rem' }} id='desc' placeholder='Describe the book briefly ...' onChange={this.updateDesc}></textarea>
-              </div>
-            </form>
+            <Form>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Title</Form.Label>
+                <Form.Control type="text" placeholder='Elequent JavaScript' onChange={this.updateTitle} />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Describtion</Form.Label>
+                <Form.Control as="textarea" placeholder='Describe the book briefly ...' rows={3} onChange={this.updateDesc}/>
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Status</Form.Label>
+                <Form.Control type="text" placeholder='read' onChange={this.updateStatus} />
+              </Form.Group>
+            </Form>
           </Modal.Body>
           <p style={{ textAlign: 'center' }}>Client is {this.state.trusted ? 'trusted' : 'not trusted'}</p>
           <p style={{ color: 'green', fontWeight: 'bold', textAlign: 'center', opacity: `${this.state.bookAdded ? '1' : '0'}` }}>{this.state.empty ? 'Come on man, get real!' : 'Success'}</p>
